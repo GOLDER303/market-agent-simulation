@@ -63,6 +63,7 @@ dependencies {
     implementation "org.lwjgl:lwjgl-yoga"
     implementation "org.lwjgl:lwjgl-zstd"
     implementation("org.joml:joml:1.10.8")
+    compileOnly("org.projectlombok:lombok:1.18.38")
 
     runtimeOnly "org.lwjgl:lwjgl::$lwjglNatives"
     runtimeOnly "org.lwjgl:lwjgl-assimp::$lwjglNatives"
