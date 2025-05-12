@@ -27,11 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
         float distance = Vector2.Distance(targetXZ, positionXZ);
 
-        Debug.Log(distance);
-
         if (distance <= .1f)
         {
-            Debug.Log("target changed");
             currentTargetPoint = path.GetControlPoint(++currentTargetPointIndex);
         }
 
