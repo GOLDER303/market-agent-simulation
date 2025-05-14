@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.Scripting.APIUpdating;
 
-public class PlayerMovement : MonoBehaviour
+public class Customer : MonoBehaviour
 {
     [SerializeField]
     private WaypointPath path;
