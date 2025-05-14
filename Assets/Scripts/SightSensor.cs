@@ -45,6 +45,11 @@ public class SightSensor : MonoBehaviour
 
     void Update()
     {
+        foreach (var obj in objectsInSight)
+        {
+            Debug.Log(obj);
+        }
+
         scanTimer -= Time.deltaTime;
 
         if (scanTimer <= 0)
