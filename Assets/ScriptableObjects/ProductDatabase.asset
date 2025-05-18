@@ -20,4 +20,16 @@ MonoBehaviour:
   - type: 1
     shelfPrefab: {fileID: 43047991608590457, guid: 00f2a27601995ba479dc61f4c8708612, type: 3}
     productPrefab: {fileID: 4363363334462226804, guid: e487a56934bd7cb448a89d196886ac6c, type: 3}
-    shelfColor: {r: 0.9022963, g: 1, b: 0, a: 0}
+    shelfColor: {r: 0.5442691, g: 1, b: 0, a: 0}
+  - type: 2
+    shelfPrefab: {fileID: 43047991608590457, guid: 00f2a27601995ba479dc61f4c8708612, type: 3}
+    productPrefab: {fileID: 1299394096580186806, guid: 60b7fbae5fa7a2746926acf54dc04d3c, type: 3}
+    shelfColor: {r: 1, g: 1, b: 1, a: 0}
+  - type: 3
+    shelfPrefab: {fileID: 43047991608590457, guid: 00f2a27601995ba479dc61f4c8708612, type: 3}
+    productPrefab: {fileID: 4363363334462226804, guid: e487a56934bd7cb448a89d196886ac6c, type: 3}
+    shelfColor: {r: 0.6509434, g: 0.48064286, b: 0.19344072, a: 0}
+  - type: 4
+    shelfPrefab: {fileID: 43047991608590457, guid: 00f2a27601995ba479dc61f4c8708612, type: 3}
+    productPrefab: {fileID: 4363363334462226804, guid: e487a56934bd7cb448a89d196886ac6c, type: 3}
+    shelfColor: {r: 1, g: 0.89338535, b: 0, a: 0}
