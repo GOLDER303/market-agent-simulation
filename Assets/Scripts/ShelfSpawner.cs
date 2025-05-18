@@ -76,8 +76,16 @@ public class ShelfSpawner : MonoBehaviour
 
             if (config.productPrefab != null)
             {
-                GameObject product = Instantiate(config.productPrefab, shelfObj.transform);
-                product.transform.localPosition = Vector3.zero;
+                Transform parent = shelfObj.transform.Find("ProductAnchor") ?? shelfObj.transform;
+                GameObject product = Instantiate(config.productPrefab, parent);
+
+                Renderer rend = product.GetComponentInChildren<Renderer>();
+                if (rend != null)
+                {
+                    float halfHeight = rend.bounds.extents.y;
+                    product.transform.localPosition = product.transform.localPosition + Vector3.up * halfHeight;
+                }
+
                 product.transform.localRotation = Quaternion.identity;
             }
         }
