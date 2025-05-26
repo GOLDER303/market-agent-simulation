@@ -3,8 +3,15 @@ using UnityEngine;
 
 public class Customer : MonoBehaviour
 {
+    public Product CurrentTargetProduct { get; private set; }
+    public float PickupRange => pickupRange;
+    public float Speed => speed;
+
     [SerializeField]
-    private WaypointPath path;
+    private float pickupRange = .7f;
+
+    [SerializeField]
+    private CustomerStateMachine stateMachine;
 
     [SerializeField]
     private float speed = 5f;
@@ -13,68 +20,42 @@ public class Customer : MonoBehaviour
     private List<string> productList = new();
 
     private HashSet<string> productSet;
-    private Vector3 currentTargetPoint;
-    private int currentTargetPointIndex = 0;
-    private Rigidbody rb;
     private SightSensor sightSensor;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
         sightSensor = GetComponentInChildren<SightSensor>();
 
         productSet = new HashSet<string>(productList);
-
-        currentTargetPoint = path.GetControlPoint(0);
     }
 
     void Update()
     {
         Product product = GetProductFromListInSight();
 
-        if (product != null)
+        if (
+            CurrentTargetProduct == null
+            && product != null
+            && stateMachine.CurrentStateKey == CustomerStateMachine.CustomerState.FollowingPath
+        )
         {
-            MoveTowardsPosition(product.transform.position);
+            CurrentTargetProduct = product;
+            stateMachine.ChangeState(CustomerStateMachine.CustomerState.MovingToProduct);
         }
-        else
-        {
-            MoveAlongWaypointPath();
-        }
-    }
-
-    private void MoveAlongWaypointPath()
-    {
-        Vector2 targetXZ = new(currentTargetPoint.x, currentTargetPoint.z);
-        Vector2 positionXZ = new(transform.position.x, transform.position.z);
-
-        float distance = Vector2.Distance(targetXZ, positionXZ);
-
-        if (distance <= .1f)
-        {
-            currentTargetPoint = path.GetControlPoint(++currentTargetPointIndex);
-        }
-
-        MoveTowardsPosition(currentTargetPoint);
-    }
-
-    private void MoveTowardsPosition(Vector3 targetPosition)
-    {
-        Vector3 direction = targetPosition - transform.position;
-        direction.y = 0;
-
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
-        transform.rotation = lookRotation;
-
-        rb.linearVelocity = direction.normalized * speed;
     }
 
     private Product GetProductFromListInSight()
     {
         foreach (GameObject objectInSight in sightSensor.ObjectsInSight)
         {
+            if (objectInSight == null)
+            {
+                continue;
+            }
+
             Product product = objectInSight.GetComponent<Product>();
 
-            if (product != null && productSet.Contains(product.ProductSO.name))
+            if (product != null && productSet.Contains(product.ProductSO.productName))
             {
                 return product;
             }
