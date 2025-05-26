@@ -6,6 +6,7 @@ public class Customer : MonoBehaviour
     public Product CurrentTargetProduct { get; private set; }
     public float PickupRange => pickupRange;
     public float Speed => speed;
+    public ShoppingListManager ShoppingList => shoppingList;
 
     [SerializeField]
     private float pickupRange = .7f;
@@ -17,16 +18,16 @@ public class Customer : MonoBehaviour
     private float speed = 5f;
 
     [SerializeField]
-    private List<string> productList = new();
+    private List<string> shoppingProductsList;
 
-    private HashSet<string> productSet;
+    private ShoppingListManager shoppingList;
+
     private SightSensor sightSensor;
 
     void Start()
     {
+        shoppingList = new(shoppingProductsList);
         sightSensor = GetComponentInChildren<SightSensor>();
-
-        productSet = new HashSet<string>(productList);
     }
 
     void Update()
@@ -55,7 +56,7 @@ public class Customer : MonoBehaviour
 
             Product product = objectInSight.GetComponent<Product>();
 
-            if (product != null && productSet.Contains(product.ProductSO.productName))
+            if (product != null && shoppingList.ContainsProduct(product.ProductSO.productName))
             {
                 return product;
             }

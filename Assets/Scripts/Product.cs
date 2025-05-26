@@ -10,8 +10,9 @@ public class Product : MonoBehaviour
     [SerializeField]
     private ProductSO productSO;
 
-    public void PickUp()
+    public ProductSO PickUp()
     {
         Destroy(gameObject);
+        return productSO;
     }
 }
