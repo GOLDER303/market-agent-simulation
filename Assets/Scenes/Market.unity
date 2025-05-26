@@ -171,6 +171,7 @@ Transform:
   m_Children:
   - {fileID: 1558955946}
   - {fileID: 1658461107}
+  - {fileID: 786024052}
   - {fileID: 611632808}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -359,6 +360,53 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!1 &786024051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 786024052}
+  - component: {fileID: 786024053}
+  m_Layer: 0
+  m_Name: EntranceExitSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &786024052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786024051}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.4879916, y: 0, z: 12.265337}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 78927083}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &786024053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786024051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f957abd7a8184240bc8207a50666d32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layout: {fileID: 78927082}
+  entrancePrefab: {fileID: 767622231957700263, guid: b68c5cb80ccc8fa40ba357f0c2d1c6d1, type: 3}
+  exitPrefab: {fileID: 767622231957700263, guid: 4451eee964964da4dba90dbee03d518d, type: 3}
 --- !u!1 &1517824115
 GameObject:
   m_ObjectHideFlags: 0
