@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PickingUpProductState : BaseCustomerState
@@ -13,7 +12,15 @@ public class PickingUpProductState : BaseCustomerState
 
     public override void ExitState() { }
 
-    public override void Tick() { }
+    public override void Tick()
+    {
+        if (customer.CurrentTargetProduct == null)
+        {
+            return;
+        }
 
-    public override void FixedTick() { }
+        ProductSO pickedUpProductSO = customer.CurrentTargetProduct.PickUp();
+        customer.ShoppingList.RemoveProductFromList(pickedUpProductSO.productName);
+        stateMachine.ChangeState(CustomerStateMachine.CustomerState.FollowingPath);
+    }
 }

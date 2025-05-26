@@ -44,9 +44,7 @@ public class MovingToProductState : BaseCustomerState
 
         if (distanceToTargetProduct <= customer.PickupRange)
         {
-            //TODO: move pickup logic to PickingUpProductState
-            targetProduct.PickUp();
-            stateMachine.ChangeState(CustomerStateMachine.CustomerState.FollowingPath);
+            stateMachine.ChangeState(CustomerStateMachine.CustomerState.PickingUpProduct);
         }
     }
 }
