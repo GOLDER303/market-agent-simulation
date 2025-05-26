@@ -4,7 +4,6 @@ using UnityEngine;
 public class ProductConfig
 {
     public ProductType type;
-    public GameObject shelfPrefab;
     public GameObject productPrefab;
-    public Color shelfColor;
+    // public Color shelfColor;
 }

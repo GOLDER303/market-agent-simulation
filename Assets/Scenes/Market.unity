@@ -148,14 +148,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab290efc32059aa40abff173de205fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 2
-  columns: 1
-  shelvesPerSet: 1
-  shelfPrefab: {fileID: 43047991608590457, guid: 00f2a27601995ba479dc61f4c8708612, type: 3}
+  rows: 4
+  columns: 2
+  shelvesPerSet: 2
+  shelfPrefab: {fileID: 723455088303280885, guid: 7acd7cd00aba2b74087ba255cddcace2, type: 3}
   spacingRows: 2
   spacingColumns: 2
-  entranceAreaWidth: 2
-  shelfSize: {x: 5, y: 1, z: 1}
+  entranceAreaWidth: 4
+  shelfSize: {x: 3, y: 2.25, z: 0.75}
 --- !u!4 &78927083
 Transform:
   m_ObjectHideFlags: 0
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layout: {fileID: 78927082}
-  shelfPrefab: {fileID: 43047991608590457, guid: 00f2a27601995ba479dc61f4c8708612, type: 3}
+  shelfPrefab: {fileID: 723455088303280885, guid: 7acd7cd00aba2b74087ba255cddcace2, type: 3}
   productDatabase: {fileID: 11400000, guid: 4d38a6213e1d7f248a69428485e0ea89, type: 2}
   spawnedShelves:
   - {fileID: 0}

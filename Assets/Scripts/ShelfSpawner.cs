@@ -52,9 +52,9 @@ public class ShelfSpawner : MonoBehaviour
                         layout.shelfSize.y / 2f,
                         layout.shelfSize.z / 2f
                     );
-                    GameObject shelfObj = Instantiate(shelfPrefab, shelfPos, Quaternion.identity, this.transform);
+                    GameObject shelfObj = Instantiate(shelfPrefab, shelfPos + new Vector3(0, 0, layout.shelfSize.z), Quaternion.identity, this.transform);
                     spawnedShelves.Add(shelfObj);
-                    GameObject shelfObjMirrored = Instantiate(shelfPrefab, shelfPos + new Vector3(0, 0, layout.shelfSize.z), Quaternion.Euler(0, 180, 0), this.transform);
+                    GameObject shelfObjMirrored = Instantiate(shelfPrefab, shelfPos, Quaternion.Euler(0, 180, 0), this.transform);
                     spawnedShelves.Add(shelfObjMirrored);
                 }
             }
@@ -66,27 +66,31 @@ public class ShelfSpawner : MonoBehaviour
         foreach (var shelfObj in spawnedShelves)
         {
             var config = productDatabase.products[Random.Range(0, productDatabase.products.Count)];
-
             Shelf shelf = shelfObj.GetComponent<Shelf>();
             if (shelf != null)
             {
                 shelf.productType = config.type;
-                shelf.SetColor(config.shelfColor);
+                // shelf.SetColor(config.shelfColor);
             }
 
             if (config.productPrefab != null)
             {
-                Transform parent = shelfObj.transform.Find("ProductAnchor") ?? shelfObj.transform;
-                GameObject product = Instantiate(config.productPrefab, parent);
-
-                Renderer rend = product.GetComponentInChildren<Renderer>();
-                if (rend != null)
+                Transform anchorsParent = shelfObj.transform.Find("Anchors");
+                foreach (Transform anchor in anchorsParent)
                 {
-                    float halfHeight = rend.bounds.extents.y;
-                    product.transform.localPosition = product.transform.localPosition + Vector3.up * halfHeight;
-                }
+                    GameObject product = Instantiate(config.productPrefab, anchor.position, Quaternion.identity, anchor);
 
-                product.transform.localRotation = Quaternion.identity;
+                    Renderer renderer = product.GetComponentInChildren<Renderer>();
+                    if (renderer != null)
+                    {
+                        float modelBottomY = renderer.bounds.min.y;
+                        float anchorY = anchor.position.y;
+                        float deltaY = anchorY - modelBottomY;
+                        product.transform.position += Vector3.up * deltaY;
+                    }
+
+                    product.transform.localRotation = Quaternion.identity;
+                }
             }
         }
     }

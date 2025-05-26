@@ -14,22 +14,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   products:
   - type: 0
-    shelfPrefab: {fileID: 43047991608590457, guid: 00f2a27601995ba479dc61f4c8708612, type: 3}
-    productPrefab: {fileID: 1299394096580186806, guid: 60b7fbae5fa7a2746926acf54dc04d3c, type: 3}
-    shelfColor: {r: 0, g: 0.6028018, b: 1, a: 0}
+    productPrefab: {fileID: 4771479405953594038, guid: abbf234617205844db11a1e767893e4f, type: 3}
   - type: 1
-    shelfPrefab: {fileID: 43047991608590457, guid: 00f2a27601995ba479dc61f4c8708612, type: 3}
-    productPrefab: {fileID: 4363363334462226804, guid: e487a56934bd7cb448a89d196886ac6c, type: 3}
-    shelfColor: {r: 0.5442691, g: 1, b: 0, a: 0}
+    productPrefab: {fileID: 4103672370777542020, guid: 465053c7e3a8f0b4e9fd2a994ff5c208, type: 3}
   - type: 2
-    shelfPrefab: {fileID: 43047991608590457, guid: 00f2a27601995ba479dc61f4c8708612, type: 3}
-    productPrefab: {fileID: 1299394096580186806, guid: 60b7fbae5fa7a2746926acf54dc04d3c, type: 3}
-    shelfColor: {r: 1, g: 1, b: 1, a: 0}
+    productPrefab: {fileID: 2331670522597842040, guid: 7cd44d83ebf4ecc439b1f943cbd3f50a, type: 3}
   - type: 3
-    shelfPrefab: {fileID: 43047991608590457, guid: 00f2a27601995ba479dc61f4c8708612, type: 3}
-    productPrefab: {fileID: 4363363334462226804, guid: e487a56934bd7cb448a89d196886ac6c, type: 3}
-    shelfColor: {r: 0.6509434, g: 0.48064286, b: 0.19344072, a: 0}
+    productPrefab: {fileID: 5184705097397960854, guid: 1d1b2b5435f5e7446abb1ddfb79cb8fb, type: 3}
   - type: 4
-    shelfPrefab: {fileID: 43047991608590457, guid: 00f2a27601995ba479dc61f4c8708612, type: 3}
-    productPrefab: {fileID: 4363363334462226804, guid: e487a56934bd7cb448a89d196886ac6c, type: 3}
-    shelfColor: {r: 1, g: 0.89338535, b: 0, a: 0}
+    productPrefab: {fileID: 5731033002757011461, guid: f52b0a4b6b774914f9bc62d5eec653a5, type: 3}
+  - type: 5
+    productPrefab: {fileID: 3741629357895028283, guid: b6d32a74e9000654f911b575dc121e87, type: 3}
+  - type: 6
+    productPrefab: {fileID: 1047062781074783060, guid: 9d5a2f06615648c47b3f7ff76e60342a, type: 3}
+  - type: 7
+    productPrefab: {fileID: 744526361801570765, guid: 684be142cc15f684abc593cc49203ace, type: 3}
+  - type: 8
+    productPrefab: {fileID: 693796132314117409, guid: b20045e6c3596734b856aa518cc09686, type: 3}
+  - type: 9
+    productPrefab: {fileID: 2129929732172800472, guid: f08a4f8cd29edd940a8f696ff2a3649f, type: 3}
+  - type: 10
+    productPrefab: {fileID: 4355291191733541402, guid: 9aaf52fce2e472c428b3649bcc1d719a, type: 3}
+  - type: 11
+    productPrefab: {fileID: 1067534649613379015, guid: d90447f4151e57844ba78a8547e159ee, type: 3}
+  - type: 12
+    productPrefab: {fileID: 7253298302694123796, guid: a857ec3e6ef922843bfea771a94540ba, type: 3}
+  - type: 13
+    productPrefab: {fileID: 5440950435437339773, guid: 743747dfcc468a947ac05547a2eb4deb, type: 3}
+  - type: 14
+    productPrefab: {fileID: 2750236993837222570, guid: 737c2fda69259de40b4fb5965b86a9e7, type: 3}
+  - type: 15
+    productPrefab: {fileID: 3886772027557337549, guid: 92c7f8056cabe5d41adb33dabc77e09f, type: 3}
+  - type: 16
+    productPrefab: {fileID: 754857230914644915, guid: 461ecf4c96163fd42932453b7eb4132a, type: 3}
+  - type: 17
+    productPrefab: {fileID: 4008468578534030988, guid: dee06e22df2c81248a24f2cca32d1dc3, type: 3}
+  - type: 18
+    productPrefab: {fileID: 4309598148338633508, guid: 0f720b1fb49f9f44485475341160f224, type: 3}
+  - type: 19
+    productPrefab: {fileID: 2580249621097652999, guid: 2f120549ced5a7240a1b5f0bb5ce2254, type: 3}
+  - type: 20
+    productPrefab: {fileID: 1613769841287687326, guid: 380438c0a791c004c8b183495da0a615, type: 3}
