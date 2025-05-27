@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class ShelfSpawner : MonoBehaviour
 {
@@ -25,9 +25,17 @@ public class ShelfSpawner : MonoBehaviour
     {
         ClearShelves();
 
-        if (layout == null || shelfPrefab == null || productDatabase == null || productDatabase.products == null || productDatabase.products.Count == 0)
+        if (
+            layout == null
+            || shelfPrefab == null
+            || productDatabase == null
+            || productDatabase.products == null
+            || productDatabase.products.Count == 0
+        )
         {
-            Debug.LogWarning("ShelfSpawner: MapLayout, shelfPrefab or productDatabase not assigned.");
+            Debug.LogWarning(
+                "ShelfSpawner: MapLayout, shelfPrefab or productDatabase not assigned."
+            );
             return;
         }
 
@@ -39,22 +47,38 @@ public class ShelfSpawner : MonoBehaviour
         {
             for (int col = 0; col < layout.columns; col++)
             {
-                Vector3 setOrigin = origin + new Vector3(
-                    layout.entranceAreaWidth + layout.spacingColumns + col * (setWidth + layout.spacingColumns),
-                    0,
-                    layout.spacingRows + row * (rowDepth + layout.spacingRows)
-                );
+                Vector3 setOrigin =
+                    origin
+                    + new Vector3(
+                        layout.entranceAreaWidth
+                            + layout.spacingColumns
+                            + col * (setWidth + layout.spacingColumns),
+                        0,
+                        layout.spacingRows + row * (rowDepth + layout.spacingRows)
+                    );
 
                 for (int s = 0; s < layout.shelvesPerSet; s++)
                 {
-                    Vector3 shelfPos = setOrigin + new Vector3(
-                        s * layout.shelfSize.x + layout.shelfSize.x / 2f,
-                        layout.shelfSize.y / 2f,
-                        layout.shelfSize.z / 2f
+                    Vector3 shelfPos =
+                        setOrigin
+                        + new Vector3(
+                            s * layout.shelfSize.x + layout.shelfSize.x / 2f,
+                            layout.shelfSize.y / 2f,
+                            layout.shelfSize.z / 2f
+                        );
+                    GameObject shelfObj = Instantiate(
+                        shelfPrefab,
+                        shelfPos + new Vector3(0, 0, layout.shelfSize.z),
+                        Quaternion.identity,
+                        this.transform
                     );
-                    GameObject shelfObj = Instantiate(shelfPrefab, shelfPos + new Vector3(0, 0, layout.shelfSize.z), Quaternion.identity, this.transform);
                     spawnedShelves.Add(shelfObj);
-                    GameObject shelfObjMirrored = Instantiate(shelfPrefab, shelfPos, Quaternion.Euler(0, 180, 0), this.transform);
+                    GameObject shelfObjMirrored = Instantiate(
+                        shelfPrefab,
+                        shelfPos,
+                        Quaternion.Euler(0, 180, 0),
+                        this.transform
+                    );
                     spawnedShelves.Add(shelfObjMirrored);
                 }
             }
@@ -78,7 +102,12 @@ public class ShelfSpawner : MonoBehaviour
                 Transform anchorsParent = shelfObj.transform.Find("Anchors");
                 foreach (Transform anchor in anchorsParent)
                 {
-                    GameObject product = Instantiate(config.productPrefab, anchor.position, Quaternion.identity, anchor);
+                    GameObject product = Instantiate(
+                        config.productPrefab,
+                        anchor.position,
+                        Quaternion.identity,
+                        anchor
+                    );
 
                     Renderer renderer = product.GetComponentInChildren<Renderer>();
                     if (renderer != null)

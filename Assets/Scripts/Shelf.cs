@@ -13,7 +13,8 @@ public class Shelf : MonoBehaviour
     /// </summary>
     public void SetColor(Color c)
     {
-        if (shelfRenderer == null) return;
+        if (shelfRenderer == null)
+            return;
         var mat = Instantiate(shelfRenderer.sharedMaterial);
         mat.color = c;
         shelfRenderer.material = mat;

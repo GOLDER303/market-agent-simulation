@@ -18,7 +18,7 @@ public class MapLayout : MonoBehaviour
     [Header("Entrance/Exit Area")]
     public float entranceAreaWidth = 8f;
 
-    public Vector3 shelfSize = new Vector3(1,1,1); // default fallback
+    public Vector3 shelfSize = new Vector3(1, 1, 1); // default fallback
 
     private void OnValidate()
     {
@@ -32,14 +32,13 @@ public class MapLayout : MonoBehaviour
 
     public Vector3 GetMapSize()
     {
-        float width = entranceAreaWidth
-                    + 2 * spacingColumns
-                    + columns * (shelvesPerSet * shelfSize.x)
-                    + (columns - 1) * spacingColumns;
+        float width =
+            entranceAreaWidth
+            + 2 * spacingColumns
+            + columns * (shelvesPerSet * shelfSize.x)
+            + (columns - 1) * spacingColumns;
 
-        float depth = 2 * spacingRows
-                    + rows * (2 * shelfSize.z)
-                    + (rows - 1) * spacingRows;
+        float depth = 2 * spacingRows + rows * (2 * shelfSize.z) + (rows - 1) * spacingRows;
 
         return new Vector3(width, 0f, depth);
     }

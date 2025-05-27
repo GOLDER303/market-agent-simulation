@@ -10,7 +10,8 @@ public class GridGenerator : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (layout == null) return;
+        if (layout == null)
+            return;
 
         Vector3 mapSize = layout.GetMapSize();
         Vector3 origin = layout.GetGridOrigin();
@@ -27,19 +28,29 @@ public class GridGenerator : MonoBehaviour
         {
             for (int col = 0; col < layout.columns; col++)
             {
-                Vector3 cellOrigin = origin + new Vector3(
-                    layout.entranceAreaWidth + layout.spacingColumns + col * (setWidth + layout.spacingColumns),
-                    0,
-                    layout.spacingRows + row * (rowDepth + layout.spacingRows)
-                );
+                Vector3 cellOrigin =
+                    origin
+                    + new Vector3(
+                        layout.entranceAreaWidth
+                            + layout.spacingColumns
+                            + col * (setWidth + layout.spacingColumns),
+                        0,
+                        layout.spacingRows + row * (rowDepth + layout.spacingRows)
+                    );
 
                 Vector3 cellSize = new Vector3(setWidth, 0, rowDepth);
-                Gizmos.DrawWireCube(cellOrigin + new Vector3(cellSize.x / 2f, 0, cellSize.z / 2f), cellSize);
+                Gizmos.DrawWireCube(
+                    cellOrigin + new Vector3(cellSize.x / 2f, 0, cellSize.z / 2f),
+                    cellSize
+                );
             }
         }
 
         Gizmos.color = entranceColor;
         Vector3 entranceZoneSize = new Vector3(layout.entranceAreaWidth, 0, mapSize.z);
-        Gizmos.DrawWireCube(origin + new Vector3(entranceZoneSize.x / 2f, 0, entranceZoneSize.z / 2f), entranceZoneSize);
+        Gizmos.DrawWireCube(
+            origin + new Vector3(entranceZoneSize.x / 2f, 0, entranceZoneSize.z / 2f),
+            entranceZoneSize
+        );
     }
 }
