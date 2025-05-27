@@ -66,5 +66,8 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj",
     },
-    "dotnet.defaultSolution": "market-agent-simulation.sln"
+    "dotnet.defaultSolution": "market-agent-simulation.sln",
+    "cSpell.words": [
+        "Linecast"
+    ]
 }
