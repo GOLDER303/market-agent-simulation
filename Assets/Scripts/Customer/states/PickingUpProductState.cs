@@ -20,7 +20,17 @@ public class PickingUpProductState : BaseCustomerState
         }
 
         ProductSO pickedUpProductSO = customer.CurrentTargetProduct.PickUp();
-        customer.ShoppingList.RemoveProductFromList(pickedUpProductSO.productName);
-        stateMachine.ChangeState(CustomerStateMachine.CustomerState.FollowingPath);
+        int productsLeftCount = customer.ShoppingList.RemoveProductFromList(
+            pickedUpProductSO.productName
+        );
+
+        if (productsLeftCount > 0)
+        {
+            stateMachine.ChangeState(CustomerStateMachine.CustomerState.FollowingPath);
+        }
+        else
+        {
+            stateMachine.ChangeState(CustomerStateMachine.CustomerState.MovingToCheckout);
+        }
     }
 }

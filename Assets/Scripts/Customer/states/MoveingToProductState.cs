@@ -30,7 +30,6 @@ public class MovingToProductState : BaseCustomerState
     {
         if (targetProduct == null)
         {
-            stateMachine.ChangeState(CustomerStateMachine.CustomerState.FollowingPath);
             return;
         }
 

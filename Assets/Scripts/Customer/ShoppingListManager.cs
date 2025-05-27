@@ -19,16 +19,16 @@ public class ShoppingListManager
         return productSet.Contains(productName);
     }
 
-    public void RemoveProductFromList(string productName)
+    public int RemoveProductFromList(string productName)
     {
-        Debug.Log($"list {productName}");
-
         if (!ContainsProduct(productName))
         {
-            return;
+            return productSet.Count;
         }
 
         productSet.Remove(productName);
         pickedUpProducts.Add(productName);
+
+        return productSet.Count;
     }
 }

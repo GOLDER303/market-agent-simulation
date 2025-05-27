@@ -899,6 +899,14 @@ PrefabInstance:
       propertyPath: 'productList.Array.data[0]'
       value: Apple
       objectReference: {fileID: 0}
+    - target: {fileID: 1144243857774987512, guid: fe1f401600a24464b92b5e81b9989d25, type: 3}
+      propertyPath: shoppingProductsList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144243857774987512, guid: fe1f401600a24464b92b5e81b9989d25, type: 3}
+      propertyPath: 'shoppingProductsList.Array.data[0]'
+      value: Apple
+      objectReference: {fileID: 0}
     - target: {fileID: 1589198322433776990, guid: fe1f401600a24464b92b5e81b9989d25, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.47
