@@ -1,0 +1,24 @@
+public enum ProductType
+{
+    Apple,
+    Water,
+    PinkSoda,
+    DarkSoda,
+    Beer,
+    Ketchup,
+    StrawberryMilk,
+    BlueCanFood,
+    BrownCanFood,
+    RedCanFood,
+    Chocolate,
+    Cream,
+    RedDonut,
+    WhiteDonut,
+    Mayo,
+    Coffee,
+    BlackberryJam,
+    PlumJam,
+    Potato,
+    ToiletPaper,
+    Watermelon
+}
