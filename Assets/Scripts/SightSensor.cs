@@ -30,7 +30,7 @@ public class SightSensor : MonoBehaviour
     [SerializeField]
     private LayerMask occlusionLayers;
 
-    private readonly Collider[] colliders = new Collider[50];
+    private readonly Collider[] colliders = new Collider[500];
     private float scanInterval;
     private float scanTimer;
     private int collidersInSphereCount;
@@ -88,7 +88,6 @@ public class SightSensor : MonoBehaviour
         }
 
         direction.y = 0;
-
         float deltaAngle = Vector3.Angle(direction, transform.forward);
 
         if (deltaAngle > angle)
@@ -201,10 +200,12 @@ public class SightSensor : MonoBehaviour
             Gizmos.DrawMesh(mesh, transform.position, transform.rotation);
         }
 
+        Gizmos.color = Color.red;
+
         Gizmos.DrawWireSphere(transform.position, distance);
         for (int i = 0; i < collidersInSphereCount; i++)
         {
-            Gizmos.DrawSphere(colliders[i].transform.position, .2f);
+            Gizmos.DrawWireSphere(colliders[i].transform.position, .2f);
         }
 
         Gizmos.color = Color.green;
