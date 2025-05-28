@@ -19,10 +19,8 @@ public class PickingUpProductState : BaseCustomerState
             return;
         }
 
-        ProductSO pickedUpProductSO = customer.CurrentTargetProduct.PickUp();
-        int productsLeftCount = customer.ShoppingList.RemoveProductFromList(
-            pickedUpProductSO.productName
-        );
+        ProductType pickedUpProductType = customer.CurrentTargetProduct.PickUp();
+        int productsLeftCount = customer.ShoppingList.RemoveProductFromList(pickedUpProductType);
 
         if (productsLeftCount > 0)
         {

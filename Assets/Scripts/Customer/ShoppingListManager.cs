@@ -3,31 +3,31 @@ using UnityEngine;
 
 public class ShoppingListManager
 {
-    private readonly List<string> productList = new();
+    private readonly List<ProductType> productList = new();
 
-    private readonly HashSet<string> productSet;
-    private readonly HashSet<string> pickedUpProducts = new();
+    private readonly HashSet<ProductType> productSet;
+    private readonly HashSet<ProductType> pickedUpProducts = new();
 
-    public ShoppingListManager(List<string> productList)
+    public ShoppingListManager(List<ProductType> productList)
     {
         this.productList = productList;
-        productSet = new HashSet<string>(productList);
+        productSet = new HashSet<ProductType>(productList);
     }
 
-    public bool ContainsProduct(string productName)
+    public bool ContainsProduct(ProductType productName)
     {
         return productSet.Contains(productName);
     }
 
-    public int RemoveProductFromList(string productName)
+    public int RemoveProductFromList(ProductType productType)
     {
-        if (!ContainsProduct(productName))
+        if (!ContainsProduct(productType))
         {
             return productSet.Count;
         }
 
-        productSet.Remove(productName);
-        pickedUpProducts.Add(productName);
+        productSet.Remove(productType);
+        pickedUpProducts.Add(productType);
 
         return productSet.Count;
     }

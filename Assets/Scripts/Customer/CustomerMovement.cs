@@ -18,7 +18,7 @@ public class Customer : MonoBehaviour
     private float speed = 5f;
 
     [SerializeField]
-    private List<string> shoppingProductsList;
+    private List<ProductType> shoppingProductsList;
 
     private ShoppingListManager shoppingList;
 
@@ -56,7 +56,7 @@ public class Customer : MonoBehaviour
 
             Product product = objectInSight.GetComponent<Product>();
 
-            if (product != null && shoppingList.ContainsProduct(product.ProductSO.productName))
+            if (product != null && shoppingList.ContainsProduct(product.ProductType))
             {
                 return product;
             }

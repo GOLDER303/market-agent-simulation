@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class Product : MonoBehaviour
 {
-    public ProductSO ProductSO
+    public ProductType ProductType
     {
-        get => productSO;
+        get => productType;
     }
 
     [SerializeField]
-    private ProductSO productSO;
+    private ProductType productType;
 
-    public ProductSO PickUp()
+    public ProductType PickUp()
     {
         Destroy(gameObject);
-        return productSO;
+        return productType;
     }
 }

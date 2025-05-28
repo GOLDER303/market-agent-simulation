@@ -340,7 +340,6 @@ Transform:
   m_Children:
   - {fileID: 7308851958360299263}
   - {fileID: 2389568757592372463}
-  - {fileID: 5926501198967919316}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1144243857774987512
@@ -355,10 +354,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 458a8bec2955b344991cbbe531348b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupRange: 0
-  stateMachine: {fileID: 0}
+  pickupRange: 0.7
+  stateMachine: {fileID: 6384336103415656770}
   speed: 5
-  productList: []
+  shoppingProductsList: 
 --- !u!114 &6384336103415656770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,7 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d34d4542deb2d438d77bce4eee3a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customer: {fileID: 0}
+  customer: {fileID: 1144243857774987512}
   path: {fileID: 0}
 --- !u!54 &8302411469354196588
 Rigidbody:
@@ -400,58 +399,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!1 &6615652774930366746
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5926501198967919316}
-  - component: {fileID: 7109356360193607983}
-  m_Layer: 0
-  m_Name: SightSensor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5926501198967919316
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6615652774930366746}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1589198322433776990}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7109356360193607983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6615652774930366746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 949040bcaab952b4ba8d32da4fe52d1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 12
-  angle: 60
-  height: 3
-  meshColor: {r: 0.043032765, g: 1, b: 0, a: 0.3254902}
-  scanFrequency: 30
-  layers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  occlusionLayers:
-    serializedVersion: 2
-    m_Bits: 1
