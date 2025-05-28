@@ -1,3 +1,4 @@
+using System.IO;
 using UnityEngine;
 
 public class CustomerStateMachine : StateMachine<CustomerStateMachine.CustomerState>
@@ -13,10 +14,9 @@ public class CustomerStateMachine : StateMachine<CustomerStateMachine.CustomerSt
     [SerializeField]
     private Customer customer;
 
-    [SerializeField]
-    private WaypointPath path;
+    public WaypointPath path;
 
-    private void Awake()
+    public void Initialize()
     {
         InitializeStates();
     }

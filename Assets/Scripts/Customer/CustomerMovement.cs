@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.ShortcutManagement;
 using UnityEngine;
 
 public class Customer : MonoBehaviour
@@ -7,6 +8,7 @@ public class Customer : MonoBehaviour
     public float PickupRange => pickupRange;
     public float Speed => speed;
     public ShoppingListManager ShoppingList => shoppingList;
+    public CustomerStateMachine StateMachine => stateMachine;
 
     [SerializeField]
     private float pickupRange = .7f;
@@ -24,7 +26,7 @@ public class Customer : MonoBehaviour
 
     private SightSensor sightSensor;
 
-    void Start()
+    private void Awake()
     {
         shoppingList = new(shoppingProductsList);
         sightSensor = GetComponentInChildren<SightSensor>();

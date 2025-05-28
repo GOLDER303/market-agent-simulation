@@ -16,10 +16,7 @@ public class FollowingPathState : BaseCustomerState
         this.path = path;
     }
 
-    public override void EnterState()
-    {
-        Debug.Log("FollowingPath entered");
-    }
+    public override void EnterState() { }
 
     public override void ExitState()
     {
@@ -28,6 +25,14 @@ public class FollowingPathState : BaseCustomerState
 
     public override void Tick()
     {
+        if (currentTargetPointIndex > path.ControlPointsCount)
+        {
+            currentTargetPointIndex = 0;
+            // rb.linearVelocity = Vector3.zero;
+            // rb.rotation = Quaternion.identity;
+            // return;
+        }
+
         Vector2 targetXZ = new(currentTargetPoint.x, currentTargetPoint.z);
         Vector2 positionXZ = new(customer.transform.position.x, customer.transform.position.z);
 

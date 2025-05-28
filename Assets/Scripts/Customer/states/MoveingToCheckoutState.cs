@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class MovingToCheckoutState : BaseCustomerState
@@ -13,7 +12,10 @@ public class MovingToCheckoutState : BaseCustomerState
 
     public override void ExitState() { }
 
-    public override void Tick() { }
+    public override void Tick()
+    {
+        Object.Destroy(customer);
+    }
 
     public override void FixedTick() { }
 }
