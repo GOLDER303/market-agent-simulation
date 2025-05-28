@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 458a8bec2955b344991cbbe531348b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupRange: 0.7
+  pickupRange: 0.9
   stateMachine: {fileID: 6384336103415656770}
   speed: 5
   shoppingProductsList: 
