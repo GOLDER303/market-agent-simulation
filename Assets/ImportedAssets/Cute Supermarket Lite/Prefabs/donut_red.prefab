@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5667245163201763322}
   - component: {fileID: 5316102364859236426}
   - component: {fileID: -3279551460503210993}
-  m_Layer: 0
+  - component: {fileID: -3162220156454690243}
+  m_Layer: 7
   m_Name: donut_red
-  m_TagString: Untagged
+  m_TagString: Product
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +110,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6407329691561915002, guid: 7f37f00eb8ba84949b02ade55a683807, type: 3}
+--- !u!114 &-3162220156454690243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7253298302694123796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf7ac1e943603b4ba974da6ec0a52f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productType: 12

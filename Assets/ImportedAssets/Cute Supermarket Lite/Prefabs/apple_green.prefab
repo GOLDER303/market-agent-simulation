@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3588558903594281666}
   - component: {fileID: 6750446372899806409}
   - component: {fileID: 1315475286309107876}
-  m_Layer: 0
+  - component: {fileID: -8493686977442178632}
+  m_Layer: 7
   m_Name: apple_green
-  m_TagString: Untagged
+  m_TagString: Product
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +110,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6467029899422433339, guid: b73780788ae5bdc4491b5d1d25c077ff, type: 3}
+--- !u!114 &-8493686977442178632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4771479405953594038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf7ac1e943603b4ba974da6ec0a52f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productSO: {fileID: 0}

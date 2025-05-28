@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 6673606481829281203}
   - component: {fileID: 1724934495925693929}
   - component: {fileID: -3377605848412426006}
-  m_Layer: 0
+  - component: {fileID: -5892203234552900731}
+  m_Layer: 7
   m_Name: roll_toilet
-  m_TagString: Untagged
+  m_TagString: Product
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +110,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8265581213175215200, guid: dcfcad261687d4e42ab55467e1144bee, type: 3}
+--- !u!114 &-5892203234552900731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2580249621097652999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf7ac1e943603b4ba974da6ec0a52f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productType: 19

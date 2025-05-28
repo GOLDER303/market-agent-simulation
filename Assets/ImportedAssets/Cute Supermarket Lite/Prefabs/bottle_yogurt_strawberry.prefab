@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4337655609632541186}
   - component: {fileID: 6035025192333314111}
   - component: {fileID: -4305082353049708163}
-  m_Layer: 0
+  - component: {fileID: 5719748529324746536}
+  m_Layer: 7
   m_Name: bottle_yogurt_strawberry
-  m_TagString: Untagged
+  m_TagString: Product
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +110,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -127546859901851781, guid: b75d2c73ca1276e4dbaacfb18e1fdbcb, type: 3}
+--- !u!114 &5719748529324746536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047062781074783060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf7ac1e943603b4ba974da6ec0a52f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productType: 6

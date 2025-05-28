@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1153120935039624443}
   - component: {fileID: 8999469526912238916}
   - component: {fileID: -5262739280445807812}
-  m_Layer: 0
+  - component: {fileID: -239531557179012412}
+  m_Layer: 7
   m_Name: cream_jar_yellow
-  m_TagString: Untagged
+  m_TagString: Product
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +110,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -231708808948088108, guid: 7132d3aace80be14fbac8a59a0f79e94, type: 3}
+--- !u!114 &-239531557179012412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067534649613379015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf7ac1e943603b4ba974da6ec0a52f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productType: 11

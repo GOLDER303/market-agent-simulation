@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2286942730828884731}
   - component: {fileID: 5859628411693377145}
   - component: {fileID: 7839965011794956377}
-  m_Layer: 0
+  - component: {fileID: 907392224833016589}
+  m_Layer: 7
   m_Name: jam_black
-  m_TagString: Untagged
+  m_TagString: Product
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +110,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1923786568456684946, guid: 3a0d86afddf726e48a13bc8b3899a95a, type: 3}
+--- !u!114 &907392224833016589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754857230914644915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf7ac1e943603b4ba974da6ec0a52f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productType: 16
