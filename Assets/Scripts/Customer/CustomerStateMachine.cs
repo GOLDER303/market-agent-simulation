@@ -13,12 +13,13 @@ public class CustomerStateMachine : StateMachine<CustomerStateMachine.CustomerSt
     [SerializeField]
     private Customer customer;
 
-    [SerializeField]
     private WaypointPath path;
 
-    private void Awake()
+    public void Initialize(WaypointPath path)
     {
+        this.path = path;
         InitializeStates();
+        this.enabled = true;
     }
 
     private void InitializeStates()
