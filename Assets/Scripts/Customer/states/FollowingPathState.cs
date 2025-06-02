@@ -34,7 +34,7 @@ public class FollowingPathState : BaseCustomerState
         {
             currentTargetPoint = path.GetControlPoint(++currentTargetPointIndex);
 
-            if (currentTargetPointIndex > path.ControlPointsCount)
+            if (currentTargetPointIndex + 1 >= path.ControlPointsCount)
             {
                 currentTargetPointIndex = 0;
             }
