@@ -16,10 +16,7 @@ public class FollowingPathState : BaseCustomerState
         this.path = path;
     }
 
-    public override void EnterState()
-    {
-        Debug.Log("FollowingPath entered");
-    }
+    public override void EnterState() { }
 
     public override void ExitState()
     {
@@ -36,6 +33,11 @@ public class FollowingPathState : BaseCustomerState
         if (distance <= .1f)
         {
             currentTargetPoint = path.GetControlPoint(++currentTargetPointIndex);
+
+            if (currentTargetPointIndex > path.ControlPointsCount)
+            {
+                currentTargetPointIndex = 0;
+            }
         }
 
         MoveTowardsPosition(currentTargetPoint);
