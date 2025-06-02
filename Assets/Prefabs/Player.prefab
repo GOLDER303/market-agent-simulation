@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5746648145838185419}
   - component: {fileID: 5289107417154182818}
   - component: {fileID: 307904492250410753}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2389568757592372463}
   - component: {fileID: 8339247810584694012}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SightSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 8486795400098976541}
   - component: {fileID: 2553214054208077862}
   - component: {fileID: 7794561048584812570}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7308851958360299263}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 1144243857774987512}
   - component: {fileID: 6384336103415656770}
   - component: {fileID: 8302411469354196588}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +371,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customer: {fileID: 1144243857774987512}
-  path: {fileID: 0}
 --- !u!54 &8302411469354196588
 Rigidbody:
   m_ObjectHideFlags: 0
