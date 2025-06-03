@@ -55,7 +55,9 @@ public class FollowingPathState : BaseCustomerState
 
         float distance = Vector2.Distance(targetXZ, positionXZ);
 
-        if (distance <= .1f)
+        float tolerance = Mathf.Max(0.1f, rb.linearVelocity.magnitude * Time.deltaTime * 1.5f);
+        
+        if (distance <= tolerance)
         {
             ChooseNextIntersection();
         }

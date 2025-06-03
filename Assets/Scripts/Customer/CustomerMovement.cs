@@ -25,7 +25,7 @@ public class Customer : MonoBehaviour
 
     private SightSensor sightSensor;
 
-    Animator animator;
+    private Animator animator;
 
     private void Awake()
     {
@@ -50,6 +50,10 @@ public class Customer : MonoBehaviour
             CurrentTargetProduct = product;
             stateMachine.ChangeState(CustomerStateMachine.CustomerState.MovingToProduct);
         }
+    }
+
+    void OnDestroy()
+    {
     }
 
     private Product GetProductFromListInSight()
