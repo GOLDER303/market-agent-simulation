@@ -14,7 +14,7 @@ public class ShelfSpawner : MonoBehaviour
     [Header("Spawned Shelves (Read Only)")]
     public List<GameObject> spawnedShelves = new List<GameObject>();
 
-    void Start()
+    public void GenerateShelves()
     {
         SpawnShelves();
         AssignRandomProductsToShelves();

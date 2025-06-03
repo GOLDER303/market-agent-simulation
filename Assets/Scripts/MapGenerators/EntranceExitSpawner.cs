@@ -6,11 +6,6 @@ public class EntranceExitSpawner : MonoBehaviour
     public GameObject entrancePrefab;
     public GameObject exitPrefab;
 
-    void Start()
-    {
-        SpawnEntranceAndExit();
-    }
-
     public void SpawnEntranceAndExit()
     {
         if (layout == null || entrancePrefab == null || exitPrefab == null)

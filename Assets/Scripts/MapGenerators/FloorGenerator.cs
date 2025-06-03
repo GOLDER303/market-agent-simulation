@@ -1,3 +1,4 @@
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class FloorGenerator : MonoBehaviour
@@ -6,7 +7,7 @@ public class FloorGenerator : MonoBehaviour
 
     private GameObject floorPlane;
 
-    void Awake()
+    public void GenerateFloor()
     {
         if (layout == null)
         {
@@ -26,7 +27,8 @@ public class FloorGenerator : MonoBehaviour
             {
                 floorPlane = GameObject.CreatePrimitive(PrimitiveType.Plane);
                 floorPlane.name = "FloorPlane";
-                floorPlane.transform.parent = this.transform;
+                floorPlane.transform.parent = transform;
+                floorPlane.AddComponent<NavMeshSurface>();
             }
         }
 

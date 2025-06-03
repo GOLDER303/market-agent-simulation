@@ -18,7 +18,7 @@ public class MapLayout : MonoBehaviour
     [Header("Entrance/Exit Area")]
     public float entranceAreaWidth = 8f;
 
-    public Vector3 shelfSize = new Vector3(1, 1, 1); // default fallback
+    public Vector3 shelfSize = new(1, 1, 1); // default fallback
 
     private void OnValidate()
     {

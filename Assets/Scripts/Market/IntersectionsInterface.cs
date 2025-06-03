@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 [ExecuteInEditMode]
 public class IntersectionsInterface : MonoBehaviour
@@ -48,14 +48,10 @@ public class IntersectionsInterface : MonoBehaviour
         GenerateIntersections();
     }
 
-
     private void OnDrawGizmos()
     {
         if (intersections == null)
             return;
-
-        Vector3 mapSize = layout.GetMapSize();
-        Vector3 origin = layout.GetGridOrigin();
 
         for (int row = 0; row < gridRows; row++)
         {
@@ -68,9 +64,9 @@ public class IntersectionsInterface : MonoBehaviour
 
     private void GenerateIntersections()
     {
-        if (!layout) return;
+        if (!layout)
+            return;
 
-        Vector3 mapSize = layout.GetMapSize();
         Vector3 origin = layout.GetGridOrigin();
 
         gridRows = layout.rows + 1;
@@ -79,20 +75,21 @@ public class IntersectionsInterface : MonoBehaviour
         intersections = new Intersection[gridRows, gridCols];
 
         for (int row = 0; row < gridRows; row++)
-            for (int col = 0; col < gridCols; col++)
-            {
-                Vector3 intersecPos = origin + new Vector3(
+        for (int col = 0; col < gridCols; col++)
+        {
+            Vector3 intersectionPos =
+                origin
+                + new Vector3(
                     layout.entranceAreaWidth
                         + layout.spacingColumns / 2
                         + col * (layout.shelvesPerSet * layout.shelfSize.x + layout.spacingColumns),
                     0,
                     layout.spacingRows / 2 + row * (2 * layout.shelfSize.z + layout.spacingRows)
-                    );
+                );
 
-                intersections[row, col] = new Intersection(intersecPos, row, col);
-            }
+            intersections[row, col] = new Intersection(intersectionPos, row, col);
+        }
     }
-
 
     public Intersection GetNearestIntersection(Vector3 position)
     {
@@ -115,7 +112,10 @@ public class IntersectionsInterface : MonoBehaviour
         return nearest;
     }
 
-    public List<Intersection> GetStraightLineNeighbors(Intersection current, Intersection previous = null)
+    public List<Intersection> GetStraightLineNeighbors(
+        Intersection current,
+        Intersection previous = null
+    )
     {
         List<Intersection> neighbors = new List<Intersection>();
 
@@ -142,7 +142,10 @@ public class IntersectionsInterface : MonoBehaviour
         return neighbors;
     }
 
-    public Intersection GetRandomStraightLineNeighbor(Intersection current, Intersection previous = null)
+    public Intersection GetRandomStraightLineNeighbor(
+        Intersection current,
+        Intersection previous = null
+    )
     {
         List<Intersection> neighbors = GetStraightLineNeighbors(current, previous);
 
