@@ -16,13 +16,10 @@ public class CustomerStateMachine : StateMachine<CustomerStateMachine.CustomerSt
     [SerializeField]
     private IntersectionsInterface intersectionsInterface;
 
-    private WaypointPath path;
-
-    public void Initialize(WaypointPath path)
+    public void Initialize()
     {
-        this.path = path;
         InitializeStates();
-        this.enabled = true;
+        enabled = true;
     }
 
     private void InitializeStates()
