@@ -12,11 +12,15 @@ public class MapGenerator : MonoBehaviour
     [SerializeField]
     private EntranceExitSpawner entranceExitSpawner;
 
+    [SerializeField]
+    private IntersectionsInterface intersectionsInterface;
+
     private void Awake()
     {
         shelfSpawner.GenerateShelves();
         floorGenerator.GenerateFloor();
         entranceExitSpawner.SpawnEntranceAndExit();
+        intersectionsInterface.GenerateIntersections();
 
         GenerateNavMesh();
     }

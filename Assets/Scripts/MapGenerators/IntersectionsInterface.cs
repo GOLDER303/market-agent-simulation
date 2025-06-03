@@ -33,21 +33,6 @@ public class IntersectionsInterface : MonoBehaviour
         GenerateIntersections();
     }
 
-    private void Awake()
-    {
-        if (!layout)
-        {
-            layout = GetComponent<MapLayout>();
-        }
-        if (!layout)
-        {
-            Debug.LogError("MapLayout component is not assigned or found on the GameObject.");
-            return;
-        }
-
-        GenerateIntersections();
-    }
-
     private void OnDrawGizmos()
     {
         if (intersections == null)
@@ -62,7 +47,7 @@ public class IntersectionsInterface : MonoBehaviour
         }
     }
 
-    private void GenerateIntersections()
+    public void GenerateIntersections()
     {
         if (!layout)
             return;
