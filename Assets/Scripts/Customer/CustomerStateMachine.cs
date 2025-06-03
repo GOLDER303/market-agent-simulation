@@ -13,6 +13,9 @@ public class CustomerStateMachine : StateMachine<CustomerStateMachine.CustomerSt
     [SerializeField]
     private Customer customer;
 
+    [SerializeField]
+    private IntersectionsInterface intersectionsInterface;
+
     private WaypointPath path;
 
     public void Initialize(WaypointPath path)
@@ -24,7 +27,16 @@ public class CustomerStateMachine : StateMachine<CustomerStateMachine.CustomerSt
 
     private void InitializeStates()
     {
-        states.Add(CustomerState.FollowingPath, new FollowingPathState(this, customer, path));
+        intersectionsInterface ??= FindFirstObjectByType<IntersectionsInterface>();
+        if (intersectionsInterface == null)
+        {
+            Debug.LogError("IntersectionsInterface not found in scene!");
+        }
+
+        states.Add(
+            CustomerState.FollowingPath,
+            new FollowingPathState(this, customer, intersectionsInterface)
+        );
         states.Add(CustomerState.MovingToProduct, new MovingToProductState(this, customer));
         states.Add(CustomerState.PickingUpProduct, new PickingUpProductState(this, customer));
         states.Add(CustomerState.MovingToCheckout, new MovingToCheckoutState(this, customer));
