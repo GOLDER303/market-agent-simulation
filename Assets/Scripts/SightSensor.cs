@@ -205,14 +205,20 @@ public class SightSensor : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, distance);
         for (int i = 0; i < collidersInSphereCount; i++)
         {
-            Gizmos.DrawWireSphere(colliders[i].transform.position, .2f);
+            if (colliders[i] != null)
+            {
+                Gizmos.DrawWireSphere(colliders[i].transform.position, .2f);
+            }
         }
 
         Gizmos.color = Color.green;
 
         foreach (var gameObject in objectsInSight)
         {
-            Gizmos.DrawSphere(gameObject.transform.position, .2f);
+            if (gameObject != null)
+            {
+                Gizmos.DrawSphere(gameObject.transform.position, .2f);
+            }
         }
     }
 }
