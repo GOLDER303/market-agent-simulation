@@ -16,8 +16,14 @@ public class CustomerStateMachine : StateMachine<CustomerStateMachine.CustomerSt
     [SerializeField]
     private IntersectionsInterface intersectionsInterface;
 
-    public void Initialize()
+    private Vector3 checkoutPosition;
+    private Vector3 exitPosition;
+
+    public void Initialize(Vector3 checkoutPosition, Vector3 exitPosition)
     {
+        this.checkoutPosition = checkoutPosition;
+        this.exitPosition = exitPosition;
+
         InitializeStates();
         enabled = true;
     }
@@ -36,7 +42,10 @@ public class CustomerStateMachine : StateMachine<CustomerStateMachine.CustomerSt
         );
         states.Add(CustomerState.MovingToProduct, new MovingToProductState(this, customer));
         states.Add(CustomerState.PickingUpProduct, new PickingUpProductState(this, customer));
-        states.Add(CustomerState.MovingToCheckout, new MovingToCheckoutState(this, customer));
+        states.Add(
+            CustomerState.MovingToCheckout,
+            new MovingToCheckoutState(this, customer, checkoutPosition, exitPosition)
+        );
 
         currentState = states[CustomerState.FollowingPath];
     }

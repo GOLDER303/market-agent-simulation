@@ -8,6 +8,7 @@ public class Customer : MonoBehaviour
     public float Speed => speed;
     public ShoppingListManager ShoppingList => shoppingList;
     public CustomerStateMachine StateMachine => stateMachine;
+    public float CheckoutTime => checkoutTime;
 
     [SerializeField]
     private float pickupRange = .7f;
@@ -20,6 +21,9 @@ public class Customer : MonoBehaviour
 
     [SerializeField]
     private List<ProductType> shoppingProductsList;
+
+    [SerializeField]
+    private float checkoutTime = 2;
 
     private ShoppingListManager shoppingList;
 

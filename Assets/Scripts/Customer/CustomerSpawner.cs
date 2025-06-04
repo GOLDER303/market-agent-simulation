@@ -11,6 +11,12 @@ public class CustomerSpawner : MonoBehaviour
     [SerializeField]
     private int maxCustomers = 5;
 
+    [SerializeField]
+    private Transform checkoutPosition;
+
+    [SerializeField]
+    private Transform exitPosition;
+
     private int currentCustomers = 0;
     private float timer = 0f;
 
@@ -36,7 +42,7 @@ public class CustomerSpawner : MonoBehaviour
         customer.gameObject.name = "Customer_" + currentCustomers;
 
         customer.ShoppingList.Randomize(3);
-        customer.StateMachine.Initialize();
+        customer.StateMachine.Initialize(checkoutPosition.position, exitPosition.position);
 
         currentCustomers++;
     }
