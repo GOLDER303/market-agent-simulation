@@ -18,8 +18,6 @@ public class FollowingPathState : BaseCustomerState
 
     public override void EnterState()
     {
-        Debug.Log("FollowingPath entered");
-
         if (intersectionsInterface != null)
         {
             if (currentTargetIntersection == null)
@@ -29,9 +27,7 @@ public class FollowingPathState : BaseCustomerState
                 );
             }
 
-            Debug.Log(
-                $"Initial target intersection: [{currentTargetIntersection.row}, {currentTargetIntersection.col}]"
-            );
+            navMeshAgent.SetDestination(currentTargetIntersection.position);
         }
         else
         {
@@ -39,15 +35,14 @@ public class FollowingPathState : BaseCustomerState
         }
     }
 
-    public override void ExitState()
-    {
-        rb.linearVelocity = Vector3.zero;
-    }
+    public override void ExitState() { }
 
     public override void Tick()
     {
         if (intersectionsInterface == null || currentTargetIntersection == null)
+        {
             return;
+        }
 
         Vector2 targetXZ =
             new(currentTargetIntersection.position.x, currentTargetIntersection.position.z);
@@ -55,14 +50,13 @@ public class FollowingPathState : BaseCustomerState
 
         float distance = Vector2.Distance(targetXZ, positionXZ);
 
-        float tolerance = Mathf.Max(0.1f, rb.linearVelocity.magnitude * Time.deltaTime * 1.5f);
-        
+        float tolerance = Mathf.Max(0.1f, navMeshAgent.velocity.magnitude * Time.deltaTime * 1.5f);
+
         if (distance <= tolerance)
         {
             ChooseNextIntersection();
+            navMeshAgent.SetDestination(currentTargetIntersection.position);
         }
-
-        MoveTowardsPosition(currentTargetIntersection.position);
     }
 
     private void ChooseNextIntersection()
@@ -76,10 +70,6 @@ public class FollowingPathState : BaseCustomerState
         {
             previousIntersection = currentTargetIntersection;
             currentTargetIntersection = nextIntersection;
-
-            Debug.Log(
-                $"Moving to intersection: [{currentTargetIntersection.row}, {currentTargetIntersection.col}]"
-            );
         }
     }
 

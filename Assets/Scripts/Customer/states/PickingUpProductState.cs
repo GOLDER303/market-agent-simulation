@@ -8,7 +8,10 @@ public class PickingUpProductState : BaseCustomerState
     )
         : base(stateMachine, customer) { }
 
-    public override void EnterState() { }
+    public override void EnterState()
+    {
+        navMeshAgent.SetDestination(customer.transform.position);
+    }
 
     public override void ExitState() { }
 

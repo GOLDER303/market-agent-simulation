@@ -52,10 +52,6 @@ public class Customer : MonoBehaviour
         }
     }
 
-    void OnDestroy()
-    {
-    }
-
     private Product GetProductFromListInSight()
     {
         foreach (GameObject objectInSight in sightSensor.ObjectsInSight)

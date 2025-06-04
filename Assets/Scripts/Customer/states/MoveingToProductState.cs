@@ -18,12 +18,13 @@ public class MovingToProductState : BaseCustomerState
         {
             stateMachine.ChangeState(CustomerStateMachine.CustomerState.FollowingPath);
         }
+
+        navMeshAgent.SetDestination(targetProduct.transform.position);
     }
 
     public override void ExitState()
     {
         targetProduct = null;
-        rb.linearVelocity = Vector3.zero;
     }
 
     public override void Tick()
@@ -32,8 +33,6 @@ public class MovingToProductState : BaseCustomerState
         {
             return;
         }
-
-        MoveTowardsPosition(targetProduct.transform.position);
 
         Vector2 positionXZ = new(customer.transform.position.x, customer.transform.position.z);
         Vector2 targetXZ =

@@ -68,6 +68,7 @@
     },
     "dotnet.defaultSolution": "market-agent-simulation.sln",
     "cSpell.words": [
-        "Linecast"
+        "Linecast",
+        "Mathf"
     ]
 }

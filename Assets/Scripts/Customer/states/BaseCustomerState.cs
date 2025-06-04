@@ -1,9 +1,9 @@
-using UnityEngine;
+using UnityEngine.AI;
 
 public abstract class BaseCustomerState : BaseState<CustomerStateMachine.CustomerState>
 {
     protected Customer customer;
-    protected Rigidbody rb;
+    protected NavMeshAgent navMeshAgent;
 
     protected BaseCustomerState(
         StateMachine<CustomerStateMachine.CustomerState> stateMachine,
@@ -12,17 +12,6 @@ public abstract class BaseCustomerState : BaseState<CustomerStateMachine.Custome
         : base(stateMachine)
     {
         this.customer = customer;
-        rb = customer.GetComponent<Rigidbody>();
-    }
-
-    protected void MoveTowardsPosition(Vector3 targetPosition)
-    {
-        Vector3 direction = targetPosition - customer.transform.position;
-        direction.y = 0;
-
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
-        customer.transform.rotation = lookRotation;
-
-        rb.linearVelocity = direction.normalized * customer.Speed;
+        navMeshAgent = customer.GetComponent<NavMeshAgent>();
     }
 }
