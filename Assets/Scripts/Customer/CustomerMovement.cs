@@ -20,11 +20,9 @@ public class Customer : MonoBehaviour
     private float speed = 5f;
 
     [SerializeField]
-    private List<ProductType> shoppingProductsList;
-
-    [SerializeField]
     private float checkoutTime = 2;
 
+    [SerializeField]
     private ShoppingListManager shoppingList;
 
     private SightSensor sightSensor;
@@ -33,7 +31,6 @@ public class Customer : MonoBehaviour
 
     private void Awake()
     {
-        shoppingList = new(shoppingProductsList);
         sightSensor = GetComponentInChildren<SightSensor>();
 
         animator = GetComponentInChildren<Animator>();

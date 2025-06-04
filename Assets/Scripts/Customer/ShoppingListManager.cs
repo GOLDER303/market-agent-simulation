@@ -2,16 +2,27 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShoppingListManager
+public class ShoppingListManager : MonoBehaviour
 {
+    [SerializeField]
     private readonly List<ProductType> productList = new();
+
+    [SerializeField]
+    private Transform UIOrigin;
+
+    [SerializeField]
+    private ProductDatabase productDatabase;
+
+    [SerializeField]
+    private float UISpacing = .3f;
 
     private HashSet<ProductType> productSet;
     private readonly HashSet<ProductType> pickedUpProducts = new();
 
-    public ShoppingListManager(List<ProductType> productList)
+    private readonly HashSet<GameObject> currentUIObjects = new();
+
+    private void Awake()
     {
-        this.productList = productList;
         productSet = new HashSet<ProductType>(productList);
     }
 
@@ -29,6 +40,8 @@ public class ShoppingListManager
 
         productSet.Remove(productType);
         pickedUpProducts.Add(productType);
+
+        UpdateUI();
 
         return productSet.Count;
     }
@@ -54,5 +67,44 @@ public class ShoppingListManager
 
         productSet = resultSet;
         pickedUpProducts.Clear();
+
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        foreach (GameObject UIObject in currentUIObjects)
+        {
+            Destroy(UIObject);
+        }
+
+        currentUIObjects.Clear();
+
+        int index = 0;
+
+        foreach (ProductType productType in productSet)
+        {
+            ProductConfig productConfig = productDatabase.GetConfig(productType);
+
+            Vector3 spawnPosition = UIOrigin.position;
+            if (index > 0)
+            {
+                spawnPosition += (int)Math.Pow(-1, index) * UISpacing * Vector3.right;
+            }
+
+            GameObject product = Instantiate(
+                productConfig.productPrefab,
+                spawnPosition,
+                Quaternion.identity,
+                transform
+            );
+
+            currentUIObjects.Add(product);
+
+            product.layer = 5;
+            product.tag = "Untagged";
+
+            index++;
+        }
     }
 }
