@@ -11,13 +11,24 @@ public class PickingUpProductState : BaseCustomerState
     public override void EnterState()
     {
         navMeshAgent.SetDestination(customer.transform.position);
+        animator.SetBool("isPickingUp", true);
     }
 
-    public override void ExitState() { }
+    public override void ExitState()
+    {
+        animator.SetBool("isPickingUp", false);
+    }
 
     public override void Tick()
     {
         if (customer.CurrentTargetProduct == null)
+        {
+            return;
+        }
+
+        AnimatorStateInfo animatorStateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+        if (animatorStateInfo.normalizedTime < 1)
         {
             return;
         }

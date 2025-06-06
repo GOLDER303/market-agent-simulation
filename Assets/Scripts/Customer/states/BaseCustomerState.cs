@@ -1,9 +1,11 @@
+using UnityEngine;
 using UnityEngine.AI;
 
 public abstract class BaseCustomerState : BaseState<CustomerStateMachine.CustomerState>
 {
     protected Customer customer;
     protected NavMeshAgent navMeshAgent;
+    protected Animator animator;
 
     protected BaseCustomerState(
         StateMachine<CustomerStateMachine.CustomerState> stateMachine,
@@ -13,5 +15,6 @@ public abstract class BaseCustomerState : BaseState<CustomerStateMachine.Custome
     {
         this.customer = customer;
         navMeshAgent = customer.GetComponent<NavMeshAgent>();
+        animator = customer.GetComponentInChildren<Animator>();
     }
 }
