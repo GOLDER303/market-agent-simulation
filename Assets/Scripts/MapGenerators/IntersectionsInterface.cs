@@ -54,11 +54,13 @@ public class IntersectionsInterface : MonoBehaviour
 
         Vector3 origin = layout.GetGridOrigin();
 
+        // Create intersection grid one larger than shelf grid to cover all pathways
         gridRows = layout.rows + 1;
         gridCols = layout.columns + 1;
 
         intersections = new Intersection[gridRows, gridCols];
 
+        // Generate intersections at pathway crossings between shelf sets
         for (int row = 0; row < gridRows; row++)
         for (int col = 0; col < gridCols; col++)
         {
@@ -107,6 +109,7 @@ public class IntersectionsInterface : MonoBehaviour
         int row = current.row;
         int col = current.col;
 
+        // Add all four cardinal direction neighbors (up, down, left, right)
         if (row > 0)
             neighbors.Add(intersections[row - 1, col]);
 
@@ -119,6 +122,7 @@ public class IntersectionsInterface : MonoBehaviour
         if (col < gridCols - 1)
             neighbors.Add(intersections[row, col + 1]);
 
+        // Remove previous intersection to prevent immediate backtracking
         if (previous != null && neighbors.Count > 1)
         {
             neighbors.RemoveAll(n => n.row == previous.row && n.col == previous.col);

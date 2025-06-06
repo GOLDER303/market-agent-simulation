@@ -42,6 +42,7 @@ public class Customer : MonoBehaviour
     {
         Product product = GetProductFromListInSight();
 
+        // Switch to product targeting when a needed product is spotted while following path
         if (
             CurrentTargetProduct == null
             && product != null
@@ -55,6 +56,7 @@ public class Customer : MonoBehaviour
 
     private Product GetProductFromListInSight()
     {
+        // Search through all visible objects for products on the shopping list
         foreach (GameObject objectInSight in sightSensor.ObjectsInSight)
         {
             if (objectInSight == null)
@@ -64,6 +66,7 @@ public class Customer : MonoBehaviour
 
             Product product = objectInSight.GetComponent<Product>();
 
+            // Return first product found that matches shopping list
             if (product != null && shoppingList.ContainsProduct(product.ProductType))
             {
                 return product;

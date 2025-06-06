@@ -16,6 +16,7 @@ public abstract class StateMachine<EState> : MonoBehaviour
 
     private void Start()
     {
+        // Initialize with first available state if not set
         currentStateKey ??= states.Keys.First();
         currentState ??= states[currentStateKey];
         currentState.EnterState();
@@ -39,6 +40,7 @@ public abstract class StateMachine<EState> : MonoBehaviour
 
     public void ChangeState(EState nextStateKey)
     {
+        // Prevent state changes during transition or to the same state
         if (isTransitioning || nextStateKey.Equals(currentStateKey))
         {
             return;

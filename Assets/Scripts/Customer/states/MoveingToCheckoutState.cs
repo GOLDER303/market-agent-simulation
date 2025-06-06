@@ -29,15 +29,18 @@ public class MovingToCheckoutState : BaseCustomerState
 
     public override void Tick()
     {
+        // Check if customer has reached their current destination
         if (navMeshAgent.remainingDistance < .1f)
         {
             if (hasCheckedOut)
             {
+                // Customer has finished checkout and reached exit - remove from simulation
                 CustomerSpawner.DecreaseCustomerNumber();
                 Object.Destroy(customer.gameObject);
             }
             else
             {
+                // Customer at checkout counter - simulate checkout process with timer
                 checkoutTimer += Time.deltaTime;
                 if (checkoutTimer >= customer.CheckoutTime)
                 {

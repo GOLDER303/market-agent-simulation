@@ -59,6 +59,7 @@ public class ShoppingListManager : MonoBehaviour
         HashSet<ProductType> resultSet = new();
         System.Random rand = new();
 
+        // Generate unique random products using HashSet to avoid duplicates
         while (resultSet.Count < productsCount)
         {
             ProductType randomValue = values[rand.Next(total)];
@@ -73,6 +74,7 @@ public class ShoppingListManager : MonoBehaviour
 
     private void UpdateUI()
     {
+        // Clean up existing UI objects before creating new ones
         foreach (GameObject UIObject in currentUIObjects)
         {
             Destroy(UIObject);
@@ -87,6 +89,7 @@ public class ShoppingListManager : MonoBehaviour
             ProductConfig productConfig = productDatabase.GetConfig(productType);
 
             Vector3 spawnPosition = UIOrigin.position;
+            // Alternate positioning: left-right pattern using alternating signs
             if (index > 0)
             {
                 spawnPosition += (int)Math.Pow(-1, index) * UISpacing * Vector3.right;
@@ -101,6 +104,7 @@ public class ShoppingListManager : MonoBehaviour
 
             currentUIObjects.Add(product);
 
+            // Set appropriate layer and tag for UI elements
             product.layer = 5;
             product.tag = "Untagged";
 

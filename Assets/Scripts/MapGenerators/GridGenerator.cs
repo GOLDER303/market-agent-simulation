@@ -16,18 +16,22 @@ public class GridGenerator : MonoBehaviour
         Vector3 mapSize = layout.GetMapSize();
         Vector3 origin = layout.GetGridOrigin();
 
+        // Draw overall map boundary
         Gizmos.color = boundsColor;
         Gizmos.DrawWireCube(origin + new Vector3(mapSize.x / 2f, 0, mapSize.z / 2f), mapSize);
 
         Gizmos.color = gridColor;
 
+        // Calculate shelf set dimensions
         float setWidth = layout.shelvesPerSet * layout.shelfSize.x;
         float rowDepth = 2 * layout.shelfSize.z;
 
+        // Draw grid cells representing shelf placement areas
         for (int row = 0; row < layout.rows; row++)
         {
             for (int col = 0; col < layout.columns; col++)
             {
+                // Calculate position for each grid cell with spacing
                 Vector3 cellOrigin =
                     origin
                     + new Vector3(
@@ -46,6 +50,7 @@ public class GridGenerator : MonoBehaviour
             }
         }
 
+        // Draw entrance area visualization
         Gizmos.color = entranceColor;
         Vector3 entranceZoneSize = new Vector3(layout.entranceAreaWidth, 0, mapSize.z);
         Gizmos.DrawWireCube(

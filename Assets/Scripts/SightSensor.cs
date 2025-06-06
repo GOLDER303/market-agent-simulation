@@ -56,6 +56,7 @@ public class SightSensor : MonoBehaviour
 
     private void Scan()
     {
+        // Use non-allocating sphere overlap to find potential targets within sight distance
         collidersInSphereCount = Physics.OverlapSphereNonAlloc(
             transform.position,
             distance,
@@ -66,6 +67,7 @@ public class SightSensor : MonoBehaviour
 
         objectsInSight.Clear();
 
+        // Check each found collider against sight constraints (angle, height, occlusion)
         for (int i = 0; i < collidersInSphereCount; i++)
         {
             GameObject gameObject = colliders[i].gameObject;
@@ -82,19 +84,23 @@ public class SightSensor : MonoBehaviour
         Vector3 destination = gameObject.transform.position;
         Vector3 direction = destination - origin;
 
+        // Check if target is within vertical sight range
         if (direction.y < 0 || direction.y > height)
         {
             return false;
         }
 
+        // Flatten direction to horizontal plane for angle calculation
         direction.y = 0;
         float deltaAngle = Vector3.Angle(direction, transform.forward);
 
+        // Check if target is within sight cone angle
         if (deltaAngle > angle)
         {
             return false;
         }
 
+        // Perform line-of-sight check for occlusion at eye level
         origin.y += height / 2;
         destination.y = origin.y;
 
@@ -110,6 +116,7 @@ public class SightSensor : MonoBehaviour
     {
         Mesh mesh = new();
 
+        // Calculate mesh complexity based on segments for sight cone visualization
         int segments = 10;
         int trianglesCount = (segments * 4) + 2 + 2;
         int verticesCount = trianglesCount * 3;
@@ -117,6 +124,7 @@ public class SightSensor : MonoBehaviour
         Vector3[] vertices = new Vector3[verticesCount];
         int[] triangles = new int[verticesCount];
 
+        // Define key points of the sight cone (bottom and top)
         Vector3 bottomCenter = Vector3.zero;
         Vector3 bottomRight = Quaternion.Euler(0, angle, 0) * Vector3.forward * distance;
         Vector3 bottomLeft = Quaternion.Euler(0, -angle, 0) * Vector3.forward * distance;
@@ -146,6 +154,7 @@ public class SightSensor : MonoBehaviour
         float currentAngle = -angle;
         float deltaAngle = (angle * 2) / segments;
 
+        // Generate curved surface of the sight cone using segments
         for (int i = 0; i < segments; i++)
         {
             bottomRight =
@@ -155,6 +164,7 @@ public class SightSensor : MonoBehaviour
             topRight = bottomRight + Vector3.up * height;
             topLeft = bottomLeft + Vector3.up * height;
 
+            // Create front face triangles
             vertices[vertexIndex++] = bottomLeft;
             vertices[vertexIndex++] = bottomRight;
             vertices[vertexIndex++] = topRight;
@@ -163,6 +173,7 @@ public class SightSensor : MonoBehaviour
             vertices[vertexIndex++] = topLeft;
             vertices[vertexIndex++] = bottomLeft;
 
+            // Create top and bottom cap triangles
             vertices[vertexIndex++] = topCenter;
             vertices[vertexIndex++] = topLeft;
             vertices[vertexIndex++] = topRight;

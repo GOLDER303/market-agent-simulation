@@ -37,6 +37,10 @@ public class FollowingPathState : BaseCustomerState
 
     public override void ExitState() { }
 
+
+    
+    
+    
     public override void Tick()
     {
         if (intersectionsInterface == null || currentTargetIntersection == null)
@@ -44,14 +48,17 @@ public class FollowingPathState : BaseCustomerState
             return;
         }
 
+        // Calculate horizontal distance to current target intersection
         Vector2 targetXZ =
             new(currentTargetIntersection.position.x, currentTargetIntersection.position.z);
         Vector2 positionXZ = new(customer.transform.position.x, customer.transform.position.z);
 
         float distance = Vector2.Distance(targetXZ, positionXZ);
 
+        // Dynamic tolerance based on movement speed to prevent overshooting
         float tolerance = Mathf.Max(0.1f, navMeshAgent.velocity.magnitude * Time.deltaTime * 1.5f);
 
+        // Choose next intersection when close enough to current target
         if (distance <= tolerance)
         {
             ChooseNextIntersection();
@@ -61,6 +68,8 @@ public class FollowingPathState : BaseCustomerState
 
     private void ChooseNextIntersection()
     {
+        // Get a random neighboring intersection that continues in a straight line
+        // This prevents customers from immediately backtracking
         var nextIntersection = intersectionsInterface.GetRandomStraightLineNeighbor(
             currentTargetIntersection,
             previousIntersection

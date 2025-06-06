@@ -39,14 +39,17 @@ public class ShelfSpawner : MonoBehaviour
             return;
         }
 
+        // Calculate dimensions for shelf sets
         float setWidth = layout.shelvesPerSet * layout.shelfSize.x;
         float rowDepth = 2 * layout.shelfSize.z;
         Vector3 origin = layout.GetGridOrigin();
 
+        // Generate shelves in a grid pattern: rows and columns of shelf sets
         for (int row = 0; row < layout.rows; row++)
         {
             for (int col = 0; col < layout.columns; col++)
             {
+                // Calculate position for each shelf set with proper spacing
                 Vector3 setOrigin =
                     origin
                     + new Vector3(
@@ -57,6 +60,7 @@ public class ShelfSpawner : MonoBehaviour
                         layout.spacingRows + row * (rowDepth + layout.spacingRows)
                     );
 
+                // Create individual shelves within each set (back-to-back arrangement)
                 for (int s = 0; s < layout.shelvesPerSet; s++)
                 {
                     Vector3 shelfPos =
@@ -66,6 +70,7 @@ public class ShelfSpawner : MonoBehaviour
                             layout.shelfSize.y / 2f,
                             layout.shelfSize.z / 2f
                         );
+                    // Front-facing shelf
                     GameObject shelfObj = Instantiate(
                         shelfPrefab,
                         shelfPos + new Vector3(0, 0, layout.shelfSize.z),
@@ -73,6 +78,7 @@ public class ShelfSpawner : MonoBehaviour
                         this.transform
                     );
                     spawnedShelves.Add(shelfObj);
+                    // Back-facing shelf (mirrored)
                     GameObject shelfObjMirrored = Instantiate(
                         shelfPrefab,
                         shelfPos,
@@ -89,6 +95,7 @@ public class ShelfSpawner : MonoBehaviour
     {
         foreach (var shelfObj in spawnedShelves)
         {
+            // Randomly assign a product type to each shelf
             var config = productDatabase.products[Random.Range(0, productDatabase.products.Count)];
             Shelf shelf = shelfObj.GetComponent<Shelf>();
             if (shelf != null)
@@ -97,6 +104,7 @@ public class ShelfSpawner : MonoBehaviour
                 // shelf.SetColor(config.shelfColor);
             }
 
+            // Populate shelf with product instances at anchor points
             if (config.productPrefab != null)
             {
                 Transform anchorsParent = shelfObj.transform.Find("Anchors");
@@ -109,6 +117,7 @@ public class ShelfSpawner : MonoBehaviour
                         anchor
                     );
 
+                    // Align product bottom with anchor position for proper placement
                     Renderer renderer = product.GetComponentInChildren<Renderer>();
                     if (renderer != null)
                     {

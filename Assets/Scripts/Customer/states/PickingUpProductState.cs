@@ -28,6 +28,7 @@ public class PickingUpProductState : BaseCustomerState
 
         AnimatorStateInfo animatorStateInfo = animator.GetCurrentAnimatorStateInfo(0);
 
+        // Wait for pickup animation to complete before processing pickup
         if (animatorStateInfo.normalizedTime < 1)
         {
             return;
@@ -36,6 +37,7 @@ public class PickingUpProductState : BaseCustomerState
         ProductType pickedUpProductType = customer.CurrentTargetProduct.PickUp();
         int productsLeftCount = customer.ShoppingList.RemoveProductFromList(pickedUpProductType);
 
+        // Decide next state based on remaining items in shopping list
         if (productsLeftCount > 0)
         {
             stateMachine.ChangeState(CustomerStateMachine.CustomerState.FollowingPath);

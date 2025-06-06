@@ -27,6 +27,7 @@ public class MapGenerator : MonoBehaviour
 
     private void GenerateNavMesh()
     {
+        // Find and rebuild all NavMesh surfaces in the scene after map generation
         NavMeshSurface[] navMeshSurfaces = FindObjectsByType<NavMeshSurface>(
             FindObjectsSortMode.None
         );
