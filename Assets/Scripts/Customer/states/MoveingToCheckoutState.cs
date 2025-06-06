@@ -33,6 +33,7 @@ public class MovingToCheckoutState : BaseCustomerState
         {
             if (hasCheckedOut)
             {
+                CustomerSpawner.DecreaseCustomerNumber();
                 Object.Destroy(customer.gameObject);
             }
             else

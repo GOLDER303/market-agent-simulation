@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class CustomerSpawner : MonoBehaviour
@@ -17,7 +18,10 @@ public class CustomerSpawner : MonoBehaviour
     [SerializeField]
     private Transform exitPosition;
 
-    private int currentCustomers = 0;
+    [SerializeField]
+    private TextMeshProUGUI customerCounterText;
+
+    private static int currentCustomers = 0;
     private float timer = 0f;
 
     private void Awake()
@@ -34,6 +38,8 @@ public class CustomerSpawner : MonoBehaviour
             SpawnCustomer();
             timer = 0f;
         }
+
+        UpdateUI();
     }
 
     private void SpawnCustomer()
@@ -47,8 +53,13 @@ public class CustomerSpawner : MonoBehaviour
         currentCustomers++;
     }
 
-    public void DecreaseCustomerNumber()
+    public static void DecreaseCustomerNumber()
     {
         currentCustomers--;
+    }
+
+    private void UpdateUI()
+    {
+        customerCounterText.text = "Customers: " + currentCustomers;
     }
 }
