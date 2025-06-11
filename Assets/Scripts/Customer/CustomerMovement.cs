@@ -34,7 +34,6 @@ public class Customer : MonoBehaviour
         sightSensor = GetComponentInChildren<SightSensor>();
 
         animator = GetComponentInChildren<Animator>();
-        Debug.Log($"Customer {name} initialized with speed: {speed}, pickup range: {pickupRange}");
         animator.SetFloat("WalkSpeedMultiplier", speed);
     }
 
