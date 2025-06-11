@@ -188,19 +188,3 @@ stateDiagram-v2
     Idle --> Exiting : shoppingListEmpty or patienceDepleted
     Exiting --> [*]
 ```
-
-#### Staff State Machine Diagram
-```mermaid
-stateDiagram-v2
-    direction LR
-    [*] --> Idle
-    Idle --> AskingIfHelpNeeded : detectsNearbyCustomer
-    Idle --> Assisting : customerRequestsHelp
-    AskingIfHelpNeeded --> Assisting : customerRequestsHelp
-    AskingIfHelpNeeded --> Idle : customerDeclines
-    Assisting --> Persuading : decidesToPersuade
-    Assisting --> Idle : helpGiven
-    Persuading --> Idle : persuasionAttempted
-```
-
-
